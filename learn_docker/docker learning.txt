@@ -23,12 +23,17 @@ docker rmi <image_id> --> to remove image
 
 docker rm <container_id>  --> to remove containter 
 
+docker create <image>  --> to create a docker 
+[returns a id]
+
+docker start -a <retrund_id_by> --> to start that container
+
 docker stop <container_id> --> to stop the docker
 docker start <container_id> --> to start same docker
 
 docker logs <container_id/container_name> --> to get the logs in that docker
 
-docker exec -it <container_id/container_name> /bin/bash  ----> to get the terminal of container
+docker exec -it <container_id/container_name> /bin/bash  ----> to execute some commands in running container
 
 docker inspect <container_id> --> to get the network or ip detais of that container
 
@@ -46,7 +51,7 @@ docker network create <newwork_name>  --> to create a docker network
  docker build -t <app_name>:<tag> <path_of_dir>
 
 connect mongodb and mongo exprss container in same network
-docker-compose   is a command to create docker compose file(yaml).
+docker-compose   is a command to execute docker compose file(yaml).
 It is used to up and down container
 
 docker-compose -f <yaml_file> <up/down>
