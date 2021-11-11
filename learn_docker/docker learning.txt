@@ -29,7 +29,7 @@ docker create <image>  --> to create a docker
 docker start -a <retrund_id_by> --> to start that container
 
 docker stop <container_id> --> to stop the docker
-docker start <container_id> --> to start same docker
+docker start <container_id> --> to start exited container
 
 docker logs <container_id/container_name> --> to get the logs in that docker
 
@@ -50,6 +50,7 @@ docker network create <newwork_name>  --> to create a docker network
  
  docker build -t <app_name>:<tag> <path_of_dir>
 
+docker system prune --> to remove all container 
 connect mongodb and mongo exprss container in same network
 docker-compose   is a command to execute docker compose file(yaml).
 It is used to up and down container
