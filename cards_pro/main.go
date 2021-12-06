@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"math/rand"
+	"strings"
+	"time"
+)
 
 type desc []string
 
@@ -29,10 +35,50 @@ func (d desc) print() {
 	}
 }
 
+func (d desc) toString() string {
+	return strings.Join([]string(d), ",")
+}
+
+func (d desc) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+func deckFromfile(filename string) desc {
+	data, err := ioutil.ReadFile(filename)
+
+	if err != nil {
+		fmt.Println("some thing went wrong")
+	}
+
+	arr := strings.Split(string(data), ",")
+	return desc(arr)
+
+}
+
+func (d desc) ShuffleDesc() {
+	seed := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(seed)
+	for i := range d {
+		randnum := r.Intn(len(d) - 1)
+		d[i], d[randnum] = d[randnum], d[i]
+	}
+}
+
 func main() {
-	cards := newDesk()
+	//cards := newDesk()
 	// cards.print()
-	front, back := cards.deal(3)
-	front.print()
-	back.print()
+	// fmt.Printf("-----------------------")
+	// front, back := cards.deal(3)
+	// front.print()
+	// fmt.Println("------------------------")
+	// back.print()
+	// fmt.Println("----------------------")
+	// fmt.Println(back.toStrin())
+	// cards.saveToFile("mycards")
+
+	newcards := deckFromfile("mycards")
+	newcards.print()
+	newcards.ShuffleDesc()
+	fmt.Println("-------------------")
+	newcards.print()
 }

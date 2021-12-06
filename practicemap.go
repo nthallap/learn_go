@@ -11,5 +11,6 @@ func main() {
 
 	k[5] = 5
 	k[10] = 10
+	m["hello"] = 10
 	fmt.Println(m, k)
 }

@@ -1,5 +1,5 @@
 docker --version
-
+docker info ---> to know about docker
 
 docker run hello-world  --> to run a container
 docker run -d hello-world --> run in detach mode
@@ -48,9 +48,10 @@ docker network create <newwork_name>  --> to create a docker network
  --name to specify the name of the container
  
  
- docker build -t <app_name>:<tag> <path_of_dir>
+ docker build -t <docker_hub_username>/<app_name>:<tag> .
 
 docker system prune --> to remove all container 
+
 connect mongodb and mongo exprss container in same network
 docker-compose   is a command to execute docker compose file(yaml).
 It is used to up and down container
