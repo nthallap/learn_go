@@ -26,7 +26,10 @@ var results = []Input{
 
 func TestAdd(t *testing.T) {
 	for _, tc := range results {
+		var naga = 20
+		fmt.Println("testing", naga)
 		val := Add(tc.x, tc.y)
+
 		fmt.Printf("x = %d, y = %d, expected = %d, output=%d \n ", tc.x, tc.y, tc.expected, val)
 		if val != tc.expected {
 			t.Error("wrong output")

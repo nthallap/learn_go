@@ -68,7 +68,10 @@ docker run -d -p8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_
 
 
 
-
+=======
+docker rm -vf $(docker ps -aq)
+docker rmi -f $(docker images -aq)
+docker system prune -a --volumes
 =========
 
 to install docker using scripts
