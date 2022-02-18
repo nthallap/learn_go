@@ -71,6 +71,9 @@ docker run -d -p8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_
 =======
 docker rm -vf $(docker ps -aq)
 docker rmi -f $(docker images -aq)
+docker system prune --all
+
+
 docker system prune -a --volumes
 =========
 
@@ -80,3 +83,16 @@ to install docker using scripts
  sudo sh get-docker.sh
  
  tmux
+ 
+ ==========
+ docker proxy
+https://www.serverlab.ca/tutorials/containers/docker/how-to-set-the-proxy-for-docker-on-ubuntu/
+
+sudo mkdir -p /etc/systemd/system/docker.service.d
+/etc/systemd/system/docker.service.d/proxy.conf
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+
+=======
+
